@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
+import { interval, Observable, Observer } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +11,31 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const myNumbers = interval(1000);
+    /* const myNumbers = interval(1000);
     myNumbers.subscribe(
       (number: Number) => {
         console.log(number);
       }
+    ); */
+    const myObserver = new Observable((observer: Observer<string>) => {
+      setTimeout(() => {
+        observer.next('first package');
+      },2000);
+      setTimeout(() => {
+        observer.next('second package');
+      },4000);
+      setTimeout(() => {
+        //observer.error('this does not work');
+        observer.complete();
+      },5000);
+      setTimeout(() => {
+        observer.next('third package');
+      },6000);
+    });
+    myObserver.subscribe(
+      (data: string) => {console.log(data);},
+      (error: string) => {console.log(error);},
+      () => {console.log('completed');}
     );
   }
 
