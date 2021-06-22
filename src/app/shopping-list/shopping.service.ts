@@ -11,13 +11,13 @@ export class ShoppingService{
         new Ingredient('Tomatoes', 5)
     ];
 
-    getIngredient(){
+    getIngredients(){
         return this.ingredients.slice();
     }
 
     addIngredient(ingredient: Ingredient){
         this.ingredients.push(ingredient);
-        this.ingredientsChanged.emit(this.getIngredient());
+        this.ingredientsChanged.emit(this.getIngredients());
     }
 
     addIngredients(ingredients: Ingredient[]){
