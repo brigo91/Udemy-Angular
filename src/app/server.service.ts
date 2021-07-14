@@ -11,4 +11,8 @@ export class ServerService{
         servers,
         {headers: headers});
     }
+
+    getServers(){
+        return this.http.get('https://udemy-ng-http-6f855-default-rtdb.europe-west1.firebasedatabase.app/data.json');
+    }
 }
