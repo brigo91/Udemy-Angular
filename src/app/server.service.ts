@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ServerService{
@@ -16,6 +17,11 @@ export class ServerService{
     }
 
     getServers(){
-        return this.http.get('https://udemy-ng-http-6f855-default-rtdb.europe-west1.firebasedatabase.app/data.json');
+        return this.http.get('https://udemy-ng-http-6f855-default-rtdb.europe-west1.firebasedatabase.app/data.json')
+        .pipe(map(
+            (response)=>{
+                return response;
+            }
+        ))
     }
 }
