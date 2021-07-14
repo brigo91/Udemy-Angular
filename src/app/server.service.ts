@@ -19,7 +19,10 @@ export class ServerService{
     getServers(){
         return this.http.get('https://udemy-ng-http-6f855-default-rtdb.europe-west1.firebasedatabase.app/data.json')
         .pipe(map(
-            (response)=>{
+            (response: any[])=>{
+                for(const server of response){
+                    server.name = 'FETCHED_' + server.name;
+                }
                 return response;
             }
         ))
