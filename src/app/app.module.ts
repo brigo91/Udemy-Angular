@@ -16,7 +16,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipesStartComponent } from './recipes/recipes-start/recipes-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/recipe.service';
+import { HttpClientModule } from '@angular/common/http';
+import { DataStorageService } from './shared/data-storage.service';
 
+//https://ng-recipe-book-3e2c0-default-rtdb.europe-west1.firebasedatabase.app/
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +38,10 @@ import { RecipeService } from './recipes/recipe.service';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [ShoppingService, RecipeService],
+  providers: [ShoppingService, RecipeService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
