@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShopingEditComponent } from './shopping-list/shoping-edit/shoping-edit.component';
-import { DropDownDirective } from './shared/dropdown.directive';
 import { ShoppingService } from './shopping-list/shopping.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeService } from './recipes/recipe.service';
@@ -17,6 +16,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { RecipesModule } from './recipes/recipes.module';
+import { SharedModule } from './shared/shared.module';
 
 //https://ng-recipe-book-3e2c0-default-rtdb.europe-west1.firebasedatabase.app/
 @NgModule({
@@ -25,7 +25,6 @@ import { RecipesModule } from './recipes/recipes.module';
     HeaderComponent,
     ShoppingListComponent,
     ShopingEditComponent,
-    DropDownDirective,
     SignupComponent,
     SigninComponent
   ],
@@ -34,7 +33,8 @@ import { RecipesModule } from './recipes/recipes.module';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RecipesModule
+    RecipesModule,
+    SharedModule
   ],
   providers: [ShoppingService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
